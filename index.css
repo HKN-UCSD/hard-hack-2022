@@ -1,61 +1,102 @@
-@font-face {
-	font-family: "Lexend Peta";
-	src: url("./assets/fonts/LexendPeta-VariableFont_wght.ttf")
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
+	overflow-x: hidden;
 	margin: 0px;
-	min-height: 300px;
+	min-height: max(300px,100%);
 	min-width: 300px;
+	background-image: linear-gradient(#158dc1, #923be6);
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6, p {
 	color: #ffffff;
 	font-family: "Lexend Peta";
 	font-style: normal;
-	font-weight: 500;
 	text-align: center;
 }
-h2 {
+.main-font, .dropdown-hidden {
 	color: #ffffff;
 	font-family: "Lexend Peta";
 	font-style: normal;
-	font-weight: 500;
-	text-align: center;
-}	
-h3 {
-	color: #ffffff;
-	font-family: "Lexend Peta";
-	font-style: normal;
-	font-weight: 500;
 	text-align: center;
 }
-h4 {
-	color: #ffffff;
-	font-family: "Lexend Peta";
-	font-style: normal;
-	font-weight: 500;
-	text-align: center;
+
+#menu-bar {
+	position: absolute;
+	display: flex;
+	right: 0px;
+	margin-right: 4em;
+	z-index: 1;
+	padding: 1em 0px;
+	display: visible;
 }
-h5 {
-	color: #ffffff;
-	font-family: "Lexend Peta";
-	font-style: normal;
-	font-weight: 500;
-	text-align: center;
+#menu-bar a {
+	text-decoration: none;
 }
-h6 {
+#menu-bar span {
 	color: #ffffff;
 	font-family: "Lexend Peta";
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 700;
 	text-align: center;
+	
+	padding: 1em;
 }
-.main-font {
+#menu-bar span:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+#dropdown-menu-bar {
+	position: absolute;
+	display: none;
+	width: 100%;
+}
+#dropdown-menu-bar a {
+	text-decoration: none;
+}
+.hamburger-icon {
+	height: 36px;
+	width: 32px;
+	display: inline-block;
+	cursor: pointer;	
+}
+.hamburger-bar1, .hamburger-bar2, .hamburger-bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.hamburger-change .hamburger-bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+.hamburger-change .hamburger-bar2 {opacity: 0;}
+.hamburger-change .hamburger-bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+#dropdown-menu-bar p {
+	display: block;
+	position: relative;
+	
 	color: #ffffff;
 	font-family: "Lexend Peta";
 	font-style: normal;
+	font-weight: 700;
 	text-align: center;
+	font-size: 2em;
+	margin: auto;
+	padding: 8px 0px;
+}
+#dropdown-menu-bar p:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+#dropdown-menu-bar-items {
+  transition: 0.5s;
 }
 
 .background-element {
@@ -65,15 +106,66 @@ h6 {
 #background {
 	z-index: -1;
 	position: absolute;
-	height: 100vh;
-	width: 100vw;
-	background-image: linear-gradient(#158dc1, #923be6);
-	overflow:hidden
+	height: 100%;
+	width: 100%;
+	overflow-x: clip;
+	overflow-y: visible;
 }
 
 #cover-page {
-	padding-top: 15vh;
+	padding-top: max(48px,15vh);
 	text-align: center;
+	min-height: max(85vh,650px);
+	max-height: 100vh;
+	
+	overflow-x: clip;
+	overflow-y: visible;
+}
+#cover-flex {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	min-height: 400px;
+}
+#img_fallenstar_container {
+	width: 130%;
+	height: 140%;
+	position: absolute;
+	left: -10%;
+	display: flex;
+	justify-content: flex-end;
+}
+#img_fallenstar {
+	position: absolute;
+	height: 80%;
+	top: 0%;
+	left: -400%;
+	display: block;
+	--progress: 0;
+}
+#img_library {
+	position: absolute;
+	height: 340px;
+	width: 80%;
+	min-width: 380px;
+	object-fit: contain;
+	object-position: right;
+	top: 30%;
+	left: 150%;
+}
+
+#about-page {
+	text-align: center;
+	min-height: max(60vh,500px);
+	max-height: 100vh;
+	padding: 0px 0px max(4em,10vh) 0px;
+	
+	overflow-x: clip;
+	overflow-y: visible;
+}
+
+.flexpad {
+	flex: 1 1 auto;
 }
 
 .center {
@@ -94,8 +186,70 @@ h6 {
 	cursor: pointer;
 }
 
+.projects-button {
+    border-style: solid;
+    border-color: white;
+	white-space: normal;
+	background-color: rgba(0,0,0,0);
+	line-height: 0;
+	border-radius: 2em;
+	padding: 1.4em 2em;
+}
+.projects-button:hover {
+	background-color: rgba(255,255,255,0.3);
+	cursor: pointer;
+}
+
 #eventdate {
-	margin: 8px auto;
-	padding: 0.9em 0px;
-	font-size: min(100vw,1.8em);
+	margin: min(8px,1vh) auto;
+	padding: min(0.9em,1vh) 0px;
+	font-size: min(4vw, 2em);
+}
+
+#apply-link {
+	z-index: 2;
+}
+
+#faq-page {
+	padding: 0px 0px 4em 0px;
+	min-width: 300px;
+}
+
+dropdown-box {
+	display: block;
+	min-height: 4em;
+	padding: 0px 0px 2em 0px;
+	width: 65%;
+	min-width: 300px;
+	margin: auto;
+	font-size: max(10px,min(1em,3vw));
+}
+#socials {
+	justify-content: center;
+	align-items: center;
+	margin: 3vh 0px 0px 0px;
+}
+#icons {
+	display: block;
+	text-align: center;
+	align-items:center;
+	padding: 0px 10px 0px 10px;
+}
+.email {
+	width: 9vw;
+	height: 9vw;
+	min-width: 2.75em;
+	min-height: 2.75em;
+	max-width: 3.9em;
+	max-height: 3.9em;
+	margin: 1vh 2vw 12vh 0px;
+}
+.instagram {
+	width: 10vw;
+	height: 10vw;
+	min-width: 2.9em;
+	min-height: 2.9em;
+	max-width: 4.2em;
+	max-height: 4.2em;
+	margin: 1vh 0px 12vh 1.5vw;
 }

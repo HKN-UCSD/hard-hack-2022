@@ -8,8 +8,12 @@
 			content="width=device-width, initial-scale=1, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="index.css" />
+		<link rel="stylesheet" href="fonts.css" />
+		<link rel="stylesheet" href="./assets/modules/dropdown/dropdown.css" />
 		<script src="./assets/libs/jquery.min.js"></script>
 		<script src="index.js"></script>
+		
+		<script src="./assets/modules/dropdown/dropdown.js"></script>
 		
 		<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
@@ -20,20 +24,85 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
+		<div id="menu-bar" class="background-element">
+			<span>About</span>
+			<a href="#faq-page"><span>FAQ</span></a>
+		</div>
+		<div id="dropdown-menu-bar" class="background-element">
+			<div class="hamburger-icon" style="position: absolute; z-index: 1; right: 0px; margin: 1em 1.5em;">
+				<div class="hamburger-bar1"></div>
+				<div class="hamburger-bar2"></div>
+				<div class="hamburger-bar3"></div>
+			</div>
+			<div id="dropdown-menu-bar-items" style="background-color: #158dc1; position: relative; width: 100%; height: 0px; overflow: hidden;">
+				<div>
+					<div style="height: 68px;"></div>
+					<p>About</p>
+					<a href="#faq-page"><p>FAQ</p></a>
+				</div>
+			</div>
+		</div>
 		<div id="background">
 			<img class="background-element" src="./assets/images/hard_hack_small_logo.png"
 				style="width:5%; min-width:50px; top: max(3vh,20px); left: max(3vh,20px);" />
-			<img id="img_fallenstar" class="background-element" src="./assets/images/hard_hack_fallenstar(2023).png"
-				style="width:35%; min-width: min(60vh,60vw); top: 30vh; left: min(max(-65vh,-65vw),-40%)" />
-			<img id="img_library" class="background-element" src="./assets/images/hard_hack_library2(2023).png"
-				style="width:30%; min-width: min(45vh,45vw); top: 25vh; right: min(max(-50vh,-50vw),-35%)" />
 		</div>
 		<div id="cover-page">
-			<img class="center" src="./assets/images/hard_hack_logo(2023).png"
-				style="width:min(100vw, 260px); display:block;" />
-			<h3 style="font-size: min(100vw,1em); margin: 8px 0px;">San Diego’s largest<br/>hardware focused hackathon</h3>
-			<h3 id="eventdate">April 15 - 16</h3>
-			<a href="https://forms.gle/wDBsqZvTqUorAfCg7"><button class="big-button center main-font" style="font-weight:700; font-size: 1em;">Apply Now</button></a>
+			<div id="cover-flex">
+				<div class="flexpad" style="min-width: 150px; position: relative;">
+					<div id="img_fallenstar_container"><img id="img_fallenstar" src="./assets/images/hard_hack_fallenstar(2023).png" /></div>
+				</div>
+				<div><div style="max-height: 60vh; display: flex; flex-direction: column;">
+					<img class="center" src="./assets/images/hard_hack_logo(2023).png"
+					style="max-height: 283px; min-height: 157px; display:block; flex: 6 6 60%; width: 50vw; object-fit: contain;" />
+					<p style="font-size: max(12px, min(2.5vw, min(3vh,1.25em))); margin: min(8px,2vh) auto; width: min(50vw,480px); height: 20%; flex: 2 2 20%;">San Diego’s largest<br/>hardware focused hackathon</p>
+					<h3 id="eventdate" style="font-size: max(16px, min(2vw, 4vh)); flex: 2 2 20%;">April 15 - 16</h3>
+				</div></div>
+				<div class="flexpad" style="min-width: 24px; position: relative;">
+					<img id="img_library" src="./assets/images/hard_hack_library2(2023).png" />
+				</div>
+			</div>
+			<a id="apply-link" href="https://forms.gle/wDBsqZvTqUorAfCg7" style="display: block; font-size: min(2.5vh, 1em); position: sticky;"><button class="big-button center main-font" style="font-weight:700; font-size: max(16px,min(5vw,1.5em));">Apply Now</button></a>
+		</div>
+        <div id="about-page" >
+            <h1 style="font-size: 2.5em; font-weight: 700">About</h1>
+            <p style="font-family: Poppins;font-size: 1.0em; font-weight: 400;padding-bottom: max(3em, 3vh);max-width: min(700px,80vw);margin:0 auto;text-align: left">
+                H.A.R.D. Hack is a hardware hackathon that HKN holds annually in collaboration with IEEE
+                and Triton Neurotech. We provide the materials and the tools needed to make a
+                hardware hack. Come out and build something cool! Anyone can attend, regardless
+                of skill level, major, or university. Group up into teams of 4 and compete with your
+                fellow engineering students overnight. Food will be provided!
+                <br>
+                <br>
+                Top builds that align with the project theme will earn a prize! In previous years,
+                winning teams have won speakers, mice, and other fun tech.
+            </p>
+            <a id="2020-projects-link" href="https://h-a-r-d-hack-2020.devpost.com/" style="display: block; font-size: min(1.8vh, 0.7em); position: sticky;padding-bottom: max(2em,2vh)"><button class="projects-button center main-font" style="font-weight:700; font-size: max(16px,min(5vw,1.5em));">View 2020 Projects</button></a>
+            <a id="2019-projects-link" href="https://hard-hack-2019.devpost.com/" style="display: block; font-size: min(1.8vh, 0.7em); position: sticky)"><button class="projects-button center main-font" style="font-weight:700; font-size: max(16px,min(5vw,1.5em));">View 2019 Projects</button></a>
+        </div>
+		<div id="faq-page">
+			<h1 style="font-size: 2.5em; font-weight: 700;">FAQ</h1>
+			<dropdown-box header="What is a hackathon?" text="A hackathon is a gathering where people collaboratively build a project from the ground-up over a short period of time. While working on a particular project, the idea is for each group member to have the ability and freedom to work on whatever they want."></dropdown-box>
+			<dropdown-box header="Is it free?" text="Yes! There is no fee associated with H.A.R.D. Hack. We will provide hardware, wifi, and a workspace. Just make sure to bring yourself! (And check out the next question to find out what's suggested to bring."></dropdown-box>
+			<dropdown-box header="Who can attend?" text="All undergraduate students from all majors from any institution are welcome to attend! And no prior experience required."></dropdown-box>
+			<dropdown-box header="Is hard hack in-person, hybrid, or virtual?" text="Hard hack will be in-person."></dropdown-box>
+			<dropdown-box header="What do I bring?" text="These are some highly suggested items to bring: laptop, blanket, reusable water bottle, layers of clothing, comfortable clothes/shoes, change of clothes, toothbrush, deodorant, energy drinks, extra snacks, and any hardware you wish to use."></dropdown-box>
+			<dropdown-box header="Do I need a team?" text="Teams are up to 5 people, so feel free to work by yourself, in a pair, or with a full team of 5! However, it is recommended to form a team of 5 just because it's you and 4 other people working on one project versus just yourself."></dropdown-box>
+			<dropdown-box header="Where is it?" text="Qualcomm Room, UC San Diego"></dropdown-box>
+			<dropdown-box header="When is it?" text="April 15, 2023 8AM - April 16, 2023 9AM"></dropdown-box>
+		</div>
+		<div id="socials">
+			<p class="center"
+				style="text-align: center; font-family: 'Lexend Peta'; font-size: max(2.3vw, 1.5em); width: max(45vw, 300px);">
+				We look forward to seeing you at HARD Hack 2023!</p>
+			<br>
+			<div id="icons">
+				<a href="mailto: hardhack@eng.ucsd.edu">
+					<img class="email" src="./assets/social_icons/email.svg"
+					align="middle"></a>
+				<a href="">
+					<img class="instagram" src="./assets/social_icons/instagram.svg"
+					align="middle" ></a>
+			</div>
 		</div>
 	</body>
 </html>
